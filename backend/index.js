@@ -14,9 +14,11 @@ app.get("/api/:id",(req,res)=>{
 app.get("/api",(req,res)=>{
   res.send(req.query.user);
 })
-app.get("/notes",(req,res)=>{
-  res.json(notes);
+app.get("/notes/:id",(req,res)=>{
+  res.json(notes.find((n)=>n._id == req.params.id));
 })
 const PORT = process.env.PORT ;
 app.listen(PORT, () => console.log("Server running on port 4000"));
+
+
 
